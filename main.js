@@ -1,17 +1,32 @@
-round();
+const buttons = document.querySelectorAll('button');
+const round = document.getElementById('round');
+const match = document.getElementById('match');
+const yourScore = document.getElementById('userScore');
+const oppScore = document.getElementById('compScore');
 
-function computerPick() {
-  let compPick = Math.floor(Math.random() * (3) + 1);
+let userScore = 0;
+let compScore = 0;
 
-  return compPick;
+buttons.forEach(button => {
+button.addEventListener('click', () => {
+  playRound(button.id);
+  })
+});
+
+function disableButton () {
+  buttons.forEach(button => {
+    button.disabled = true;
+  })
 }
 
-function round() {
-  let userHero = prompt("Pick your hero(warrior | archer | mage)")
+function computerPick() {
+  return Math.floor(Math.random() * (3) + 1);
+}
 
+function playRound(userHero) {
   if (userHero == 'warrior') {
     userPick = 1;
-  } else if (userHero == 'archer') {
+  } else if (userHero == 'bowman') {
     userPick = 2;
   } else if (userHero == 'mage') {
     userPick = 3;
@@ -22,7 +37,7 @@ function round() {
   if (compPick === 1) {
     compHero = 'warrior';
   } else if (compPick === 2) {
-    compHero = 'archer';
+    compHero = 'bowman';
   } else if (compPick === 3) {
     compHero = 'mage';
   }
@@ -30,15 +45,34 @@ function round() {
   decision = (((userPick - compPick % 3) + 3) % 3);
 
   if (decision === 2) {
-    message = `You win! A ${userHero} beats a ${compHero}!`;
+    round.textContent = `You win! A ${userHero} beats a ${compHero}!`;
+    userScore++;
   } else if (decision === 1) {
-    message = `You lose! A ${compHero} beats a ${userHero}..`;
+    round.textContent = `You lose! A ${compHero} beats a ${userHero}..`;
+    compScore++;
   } else if (decision === 0) {
-    message = `It's a tie!`;
+    round.textContent = `It's a tie! You both chose a ${userHero}`;
   }
 
-  console.log(userHero);
-  console.log(compHero);
+  yourScore.textContent = `Your Score: ${userScore}`; 
+  oppScore.textContent = `Computer's Score: ${compScore}`;
 
-  console.log(message);
+  if (userScore == 5) {
+  match.textContent = "You won the game!";  
+  disableButton();  
+  } else if (compScore == 5) {
+  match.textContent = "You lose the game!! :(";
+  disableButton();
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
