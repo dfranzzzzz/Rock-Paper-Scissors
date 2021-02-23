@@ -24,22 +24,31 @@ function computerPick() {
 }
 
 function playRound(userHero) {
+  const userImage = document.getElementsByClassName("userPick")[0];
+  const compImage = document.getElementsByClassName("compPick")[0];
+
   if (userHero == 'warrior') {
     userPick = 1;
+    userImage.src = "/pics/knight.png";
   } else if (userHero == 'bowman') {
     userPick = 2;
+    userImage.src = "/pics/archer.png";
   } else if (userHero == 'mage') {
     userPick = 3;
+    userImage.src = "/pics/wizard.png";
   }
 
   let compPick = computerPick();
 
   if (compPick === 1) {
     compHero = 'warrior';
+    compImage.src = "/pics/knight.png";
   } else if (compPick === 2) {
     compHero = 'bowman';
+    compImage.src = "/pics/archer.png";
   } else if (compPick === 3) {
     compHero = 'mage';
+    compImage.src = "/pics/wizard.png";
   }
 
   decision = (((userPick - compPick % 3) + 3) % 3);
@@ -55,7 +64,7 @@ function playRound(userHero) {
   }
 
   yourScore.textContent = `Your Score: ${userScore}`; 
-  oppScore.textContent = `Computer's Score: ${compScore}`;
+  oppScore.textContent = `CPU Score: ${compScore}`;
 
   if (userScore == 5) {
   match.textContent = "You won the game!";  
@@ -65,14 +74,3 @@ function playRound(userHero) {
   disableButton();
   }
 }
-
-
-
-
-
-
-
-
-
-
-

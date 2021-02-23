@@ -4,22 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock Paper Scissors</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/dist/css/main.css">
 </head>
 <body>
-  <div class='container'>
-    <button class="btn" id="warrior">Warrior</button>
-    <button class="btn" id="bowman">Bowman</button>
-    <button class="btn" id="mage">Mage</button>
-  </div>
-  <p id="round"></p>
-  <div>
-    <p id="userScore"></p>
-    <p id="compScore"></p>
-  </div>
-  <p id="match"></p>
+  <h1>BATTLE OF CHAMPIONS</h1>
 
+  <h3> Warrior beats a Bowman |
+    Bowman beats a Mage |
+    Mage beats a Warrior
+  </h3>
+
+  <div class="container">
+
+    <div id="flex1">
+      <h3 id="userScore">Your Score: </h3>
+      <img class="userPick heroPic" src="/pics/swords.png">
+    </div>
+
+    <div class="events">
+      <h2>Choose your hero!</h2>
+      
+      <div>
+        <button class="btn" id="warrior"><img src="/pics/swordShield.png"><h3>Warrior</h3></button>
+        <button class="btn" id="bowman"><img src="/pics/bowArrow.png"><h3>Bowman</h3></button>
+        <button class="btn" id="mage"><img src="/pics/hatWand.png"><h3>Mage</h3></button>
+      </div>
+
+      <div class="decisions">
+        <p id="round"></p>
+        <p id="match"></p>
+      </div>
+    </div>
   
+    <div id="flex2">
+      <h3 id="compScore">CPU Score:</h3>
+      <img class="compPick heroPic" src="/pics/swords.png">
+    </div>
+
+  </div>
+
   <script src="main.js"></script>
 </body>
 </html>
