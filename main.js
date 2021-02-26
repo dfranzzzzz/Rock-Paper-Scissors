@@ -29,26 +29,26 @@ function playRound(userHero) {
 
   if (userHero == 'warrior') {
     userPick = 1;
-    userImage.src = "/pics/knight.png";
+    userImage.src = "pics/knight.png";
   } else if (userHero == 'bowman') {
     userPick = 2;
-    userImage.src = "/pics/archer.png";
+    userImage.src = "pics/archer.png";
   } else if (userHero == 'mage') {
     userPick = 3;
-    userImage.src = "/pics/wizard.png";
+    userImage.src = "pics/wizard.png";
   }
 
   let compPick = computerPick();
 
   if (compPick === 1) {
     compHero = 'warrior';
-    compImage.src = "/pics/knight.png";
+    compImage.src = "pics/knight.png";
   } else if (compPick === 2) {
     compHero = 'bowman';
-    compImage.src = "/pics/archer.png";
+    compImage.src = "pics/archer.png";
   } else if (compPick === 3) {
     compHero = 'mage';
-    compImage.src = "/pics/wizard.png";
+    compImage.src = "pics/wizard.png";
   }
 
   decision = (((userPick - compPick % 3) + 3) % 3);
